@@ -3,12 +3,13 @@
 <package format="3">
   <name>memory_monitoring</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>A package to monitor system memory usage and publish alerts.</description>
   <maintainer email="iinu04835@gmail.com">rimu2434</maintainer>
-  <license>TODO: License declaration</license>
+  <license>BSD-3-Clause</license>
 
   <depend>rclpy</depend>
   <depend>std_msgs</depend>
+  <exec_depend>psutil</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
