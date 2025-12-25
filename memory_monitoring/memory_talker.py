@@ -1,11 +1,14 @@
 import rclpy
 from rclpy.node import Node
-import psutil 
+from std_msgs.msg import String 
+import psutil
 
 class MemoryTalker(Node):
     def __init__(self):
         super().__init__('memory_talker')
-        self.create_timer(1.0, self.cb) 
+        
+        self.pub = self.create_publisher(String, 'memory_usage', 10)
+        self.create_timer(3.0, self.cb)
 
     def cb(self):
         procs = []
@@ -16,9 +19,16 @@ class MemoryTalker(Node):
                 pass
         
         sorted_procs = sorted(procs, key=lambda p: p['memory_percent'], reverse=True)
+        
         if sorted_procs:
             top = sorted_procs[0]
-            self.get_logger().info(f"Debug: {top['name']} is using {top['memory_percent']}%")
+            name = top['name']
+            usage = top['memory_percent']
+            
+        
+            msg = String()
+            msg.data = f"{name}: {usage:.1f}%"
+            self.pub.publish(msg)
 
 def main():
     rclpy.init()
