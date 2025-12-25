@@ -15,8 +15,8 @@ setup(
     zip_safe=True,
     maintainer='rimu2434',
     maintainer_email='iinu04835@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='A package to monitor system memory usage and publish alerts.',
+    license='BSD-3-Clause',
     extras_require={
         'test': [
             'pytest',
@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'talker = memory_monitoring.memory_talker:main',
+            'listener = memory_monitoring.memory_listener:main',
         ],
     },
 )
