@@ -5,11 +5,12 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
+
 class MemoryListener(Node):
     def __init__(self):
         super().__init__('memory_listener')
         self.create_subscription(String, 'memory_usage', self.cb, 10)
-        self.get_logger().info("Memory Listener Started")
+        self.get_logger().info('Memory Listener Started')
 
     def cb(self, msg):
         try:
@@ -19,13 +20,15 @@ class MemoryListener(Node):
                 name = parts[0]
                 usage_str = parts[1].replace('%', '')
                 usage = float(usage_str)
-                
+
                 if usage > 50.0:
-                    self.get_logger().warn(f"High Memory Alert! {name} is using {usage}%")
+                    self.get_logger().warn(
+                        f'High Memory Alert! {name} is using {usage}%')
                 else:
-                    self.get_logger().info(f"Normal: {name} ({usage}%)")
+                    self.get_logger().info(f'Normal: {name} ({usage}%)')
         except Exception as e:
-            self.get_logger().error(f"Parse error: {e}")
+            self.get_logger().error(f'Parse error: {e}')
+
 
 def main():
     rclpy.init()

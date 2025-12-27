@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Your Name <your_email@domain.com>
 # SPDX-License-Identifier: BSD-3-Clause
 
+import psutil
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-import psutil
+
 
 class MemoryTalker(Node):
     def __init__(self):
@@ -19,17 +20,19 @@ class MemoryTalker(Node):
                 procs.append(p.info)
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 pass
-        
-        sorted_procs = sorted(procs, key=lambda p: p['memory_percent'], reverse=True)
-        
+
+        sorted_procs = sorted(
+            procs, key=lambda p: p['memory_percent'], reverse=True)
+
         if sorted_procs:
             top = sorted_procs[0]
             name = top['name']
             usage = top['memory_percent']
-            
+
             msg = String()
-            msg.data = f"{name}: {usage:.1f}%"
+            msg.data = f'{name}: {usage:.1f}%'
             self.pub.publish(msg)
+
 
 def main():
     rclpy.init()
