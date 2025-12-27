@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: ros2_ws/src/memory_monitoring
 
       - name: Install dependencies
         run: |
@@ -25,19 +27,18 @@ jobs:
           fi
           rosdep update
           
-          rosdep install --from-paths . --ignore-src -y
+          cd ros2_ws
+          rosdep install --from-paths src --ignore-src -y
 
       - name: Build package
         run: |
           . /opt/ros/jazzy/setup.sh
-          mkdir -p src_tmp/memory_monitoring
-          cp -r . src_tmp/memory_monitoring/
-          cd src_tmp
+          cd ros2_ws
           colcon build --packages-select memory_monitoring
 
       - name: Run tests
         run: |
           . /opt/ros/jazzy/setup.sh
-          cd src_tmp
+          cd ros2_ws
           colcon test --packages-select memory_monitoring
           colcon test-result --verbose
