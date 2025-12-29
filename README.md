@@ -1,4 +1,4 @@
-##　メモリを監視
+# メモリを監視
 
 [![ROS 2 CI](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml/badge.svg)](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml)
 
@@ -9,7 +9,6 @@
 * **特定機能:** その時点で最もメモリ使用率が高いプロセスの名前と使用率を抽出します。
 * **通信機能:** `/memory_usage` トピックへ情報を配信します。
 * **警告機能:** 使用率が50%を超えた場合、ログレベルをWARNに引き上げて警告します。
-**注意:** WSL環境では、WSL内部のLinuxプロセスのみが監視対象となります。
 ## 実行環境
 * Ubuntu 24.04 LTS
 * ROS 2 Jazzy Jalisco
@@ -21,7 +20,7 @@ $ sudo apt update
 $ sudo apt install python3-psutil
 ```
 ## セットアップ
-- 
+- 以下のコマンドでリポジトリをクローンします。
 ```
 $cd ~/ros2_ws/src$ git clone https://github.com/RiM72J/memory_monitoring.git
 ```
@@ -32,19 +31,22 @@ $cd ~/ros2_ws/src$ git clone https://github.com/RiM72J/memory_monitoring.git
 ```
 $source install/setup.bash$ ros2 launch memory_monitoring memory_monitoring.launch.py
 ```
-- 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。50%を超えるとWARNが表示されます。
+- 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。
+- **注意**: WSL環境では、WSL内部のLinuxプロセスのみが監視対象となります。
+```
+[listener-2] [INFO] [1766840290.322437984] [memory_listener]: Normal: chrome (1.2%)
+[listener-2] [INFO] [1766840293.314037117] [memory_listener]: Normal: code   (10.1%)
 
 ```
-[listener-2] [INFO] [173535...]: Normal: chrome (12.5%)
-[listener-2] [INFO] [173535...]: Normal: code (15.2%)
-[listener-2] [WARN] [173535...]: High Memory Alert! stress (52.3%)
+- メモリ使用率が50%を超えると、以下のように警告（WARN）が表示されます。
 ```
-
+[listener-2] [WARN] [1766840305.314365824] [memory_listener]: High Memory Alert! stress (52.3%)
+```
 
 
 
 
 ## ライセンス
 - このパッケージは、BSD-3-Clause Licenseの下で公開されています。
--　© 2025　Ryomu　Inukai
+- © 2025 Ryomu Inukai
  
