@@ -16,20 +16,30 @@
 * Python 3.12
 ## 必要なライブラリ / 必要なパッケージ
 * **psutil:** メモリ情報の取得に使用します。
-  ```
-  $ sudo apt update
-  $ sudo apt install python3-psutil
- ```
+```
+$ sudo apt update
+$ sudo apt install python3-psutil
+```
 ## セットアップ
- ```
- $cd ~/ros2_ws/src$ git clone https://github.com/RiM72J/memory_monitoring.git
- ```
+- 
+```
+$cd ~/ros2_ws/src$ git clone https://github.com/RiM72J/memory_monitoring.git
+```
 
 
 ## 使用方法
+- 以下のコマンドを実行して、監視ノードを起動します。
 ```
+$source install/setup.bash$ ros2 launch memory_monitoring memory_monitoring.launch.py
+```
+- 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。50%を超えるとWARNが表示されます。
 
 ```
+[listener-2] [INFO] [173535...]: Normal: chrome (12.5%)
+[listener-2] [INFO] [173535...]: Normal: code (15.2%)
+[listener-2] [WARN] [173535...]: High Memory Alert! stress (52.3%)
+```
+
 
 
 
