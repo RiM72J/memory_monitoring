@@ -22,14 +22,16 @@ $ sudo apt install python3-psutil
 ## セットアップ
 - 以下のコマンドでリポジトリをクローンします。
 ```
-$cd ~/ros2_ws/src$ git clone https://github.com/RiM72J/memory_monitoring.git
+$cd ~/ros2_ws/src
+$ git clone https://github.com/RiM72J/memory_monitoring.git
 ```
 
 
 ## 使用方法
 - 以下のコマンドを実行して、監視ノードを起動します。
 ```
-$source install/setup.bash$ ros2 launch memory_monitoring memory_monitoring.launch.py
+$source install/setup.bash
+$ ros2 launch memory_monitoring memory_monitoring.launch.py
 ```
 - 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。
 - **注意**: WSL環境では、WSL内部のLinuxプロセスのみが監視対象となります。
