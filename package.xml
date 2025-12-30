@@ -4,7 +4,7 @@
   <name>memory_monitoring</name>
   <version>0.0.0</version>
   <description>A package to monitor system memory usage and publish alerts.</description>
-  <maintainer email="iinu04835@gmail.com">rimu2434</maintainer>
+  <maintainer email="iinu04835@gmail.com">Ryomu Inukai</maintainer>
   <license>BSD-3-Clause</license>
 
   <depend>rclpy</depend>
