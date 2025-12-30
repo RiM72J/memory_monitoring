@@ -22,7 +22,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='rimu2434',
+    maintainer='Ryomu Inukai',
     maintainer_email='iinu04835@gmail.com',
     description='ROS 2 package for memory monitoring',
     license='BSD-3-Clause',
