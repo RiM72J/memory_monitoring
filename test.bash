@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xv
 # SPDX-FileCopyrightText: 2025 RiMC7
 # SPDX-License-Identifier: BSD-3-Clause
 
