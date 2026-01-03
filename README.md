@@ -19,12 +19,6 @@
 $ sudo apt update
 $ sudo apt install python3-psutil
 ```
-## セットアップ
-- 以下のコマンドでリポジトリをクローンします。
-```
-$cd ~/ros2_ws/src
-$ git clone https://github.com/RiM72J/memory_monitoring.git
-```
 
 
 ## 使用方法
@@ -36,7 +30,7 @@ $ ros2 launch memory_monitoring memory_monitoring.launch.py
 - 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。
 - **注意**: WSL環境では、WSL内部のLinuxプロセスのみが監視対象となります。
 ```
-[listener-2] [INFO] [1766840290.322437984] [memory_listener]: Normal: chrome (1.2%)
+[listener-2] [INFO] [1766840290.322437984] [memory_listener]: Normal: talker (0.9%)
 [listener-2] [INFO] [1766840293.314037117] [memory_listener]: Normal: code   (10.1%)
 
 ```
@@ -44,11 +38,21 @@ $ ros2 launch memory_monitoring memory_monitoring.launch.py
 ```
 [listener-2] [WARN] [1766840305.314365824] [memory_listener]: High Memory Alert! stress (52.3%)
 ```
+- 別の端末で以下のコマンドを実行すると、トピックとして配信されているデータも確認できます。
+```
+$ ros2 topic echo /memory_usage
+data: 'Normal: talker: 0.9%'
+---
+data: 'Normal: code: 10.1%'
+---
+data: 'Warn: stress: 52.3%'
+---
+```
 
 
 
 
 ## ライセンス
-- このパッケージは、BSD-3-Clause Licenseの下で公開されています。
+- このパッケージは、3-Clause BSD Licenseの下で公開されています。
 - © 2025 Ryomu Inukai
  
