@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Your Name <your_email@domain.com>
+# SPDX-FileCopyrightText: 2025 Ryomu Inukai 
 # SPDX-License-Identifier: BSD-3-Clause
 
 import psutil
@@ -30,12 +30,12 @@ class MemoryTalker(Node):
             usage = top['memory_percent']
 
             if usage > 50.0:
-                status = "Warn"
+                status = 'Warn'
             else:
-                status = "Normal"
+                status = 'Normal'
 
             msg = String()
-            msg.data = f'{name}: {usage:.1f}%'
+            msg.data = f'{status}: {name}: {usage:.1f}%'
             self.pub.publish(msg)
 
 
