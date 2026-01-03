@@ -24,7 +24,7 @@ setup(
     zip_safe=True,
     maintainer='Ryomu Inukai',
     maintainer_email='iinu04835@gmail.com',
-    description='A package to monitor system memory usage and publish alerts',
+    description='A package to monitor system memory usage and publish alerts.',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
