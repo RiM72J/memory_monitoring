@@ -1,6 +1,6 @@
 # メモリを監視
 
-[![ROS 2 CI](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml/badge.svg)](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml)
+[![test](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml/badge.svg)](https://github.com/RiM72J/memory_monitoring/actions/workflows/test.yml)
 
 - システム内で最もメモリを消費しているプロセスを特定し、その情報をトピックとして送信・ログ出力するROS 2パッケージです。
 
