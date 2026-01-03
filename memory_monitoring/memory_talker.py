@@ -29,6 +29,11 @@ class MemoryTalker(Node):
             name = top['name']
             usage = top['memory_percent']
 
+            if usage > 50.0:
+                status = "Warn"
+            else:
+                status = "Normal"
+
             msg = String()
             msg.data = f'{name}: {usage:.1f}%'
             self.pub.publish(msg)
