@@ -37,10 +37,11 @@ jobs:
           colcon build --packages-select memory_monitoring
 
       - name: Run tests
+        shell: bash
         run: |
-          . /opt/ros/jazzy/setup.sh
+          source /opt/ros/jazzy/setup.bash
           cd ros2_ws
           colcon test --packages-select memory_monitoring
           colcon test-result --verbose
-          . install/setup.bash
+          source install/setup.bash
           bash src/memory_monitoring/test/test.bash
