@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Your Name <your_email@domain.com>
+# SPDX-FileCopyrightText: 2025 Ryomu Inukai
 # SPDX-License-Identifier: BSD-3-Clause
 
 import rclpy
