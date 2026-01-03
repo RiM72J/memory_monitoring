@@ -42,3 +42,5 @@ jobs:
           cd ros2_ws
           colcon test --packages-select memory_monitoring
           colcon test-result --verbose
+          source install/setup.bash
+          bash src/memory_monitoring/test/test.bash
