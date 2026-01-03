@@ -24,7 +24,6 @@ $ sudo apt install python3-psutil
 ## 使用方法
 - 以下のコマンドを実行して、監視ノードを起動します。
 ```
-$source install/setup.bash
 $ ros2 launch memory_monitoring memory_monitoring.launch.py
 ```
 - 実行すると、以下のように3秒ごとにメモリ最大消費プロセスがログ出力されます。
